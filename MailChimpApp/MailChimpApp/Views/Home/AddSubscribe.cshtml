@@ -1,0 +1,19 @@
+﻿@model MailChimpApp.Models.MemberModel
+
+<br>
+<div class="form-group">
+
+
+    @using (Html.BeginForm("AddSubscribe", "Home", FormMethod.Post))
+    {
+        <input type="text" id="subscribe" name="email" />
+        <input type="submit" value="Subscribe" />
+
+        if (@Model != null)
+        {
+            <span>@Model.TextMessage</span>
+        }
+    }
+
+
+</div>
