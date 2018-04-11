@@ -142,8 +142,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiMailChimp\CampaignFolderApi.cs" />
+    <Compile Include="ApiMailChimp\CampaignsApi.cs" />
+    <Compile Include="ApiMailChimp\ListsApi.cs" />
     <Compile Include="ApiMailChimp\MailChimpServiceApi.cs" />
     <Compile Include="ApiMailChimp\MembersApi.cs" />
+    <Compile Include="ApiMailChimp\TemplateApi.cs" />
+    <Compile Include="ApiMailChimp\TemplateFolderApi.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

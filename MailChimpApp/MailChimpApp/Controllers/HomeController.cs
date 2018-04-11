@@ -32,5 +32,14 @@ namespace MailChimpApp.Controllers
 
             return View("AddSubscribe",message);
         }
+
+
+        public ActionResult GetAllMember(string listId)
+        {
+            listId = "c97e72b500";
+            var result = m.GetAllMember(listId);
+
+            return View(result);
+        }
     }
 }
