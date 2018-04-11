@@ -16,12 +16,12 @@ namespace MailChimpApp.ApiMailChimp
 
         public List AddOrUpdateList(List list)
         {
-            Task<List> listResult = null;
+            Task<List> result = null;
 
             if(list != null)
-                listResult = mailChimpManager.Lists.AddOrUpdateAsync(list);
+                result = mailChimpManager.Lists.AddOrUpdateAsync(list);
 
-            return listResult.Result;
+            return result.Result;
         }
 
         public void DeleteList(string listId)
@@ -32,27 +32,29 @@ namespace MailChimpApp.ApiMailChimp
 
         public IEnumerable<List> GetAllLists(ListRequest request = null)
         {
-            Task<IEnumerable<List>> listResult = null;
-                listResult = mailChimpManager.Lists.GetAllAsync(request);
+            Task<IEnumerable<List>> result = null;
+                result = mailChimpManager.Lists.GetAllAsync(request);
 
-            return listResult.Result;
+            return result.Result;
         }
 
 
         public List GetList(string listId)
         {
-            Task<List> listResult = null;
-            listResult = mailChimpManager.Lists.GetAsync(listId);
+            Task<List> result = null;
+            if (listId != null)
 
-            return listResult.Result;
+                result = mailChimpManager.Lists.GetAsync(listId);
+
+            return result.Result;
         }
 
         public ListResponse GetListResponse(ListRequest request = null)
         {
-            Task<ListResponse> listResult = null;
-            listResult = mailChimpManager.Lists.GetResponseAsync(request);
+            Task<ListResponse> result = null;
+            result = mailChimpManager.Lists.GetResponseAsync(request);
 
-            return listResult.Result;
+            return result.Result;
         }
 
     }

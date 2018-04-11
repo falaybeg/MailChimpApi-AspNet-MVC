@@ -11,6 +11,7 @@ namespace MailChimpApp.Controllers
     public class HomeController : Controller
     {
         MembersApi m = new MembersApi();
+        ListsApi lists = new ListsApi();
         MemberModel message = null;
 
         public ActionResult Index()
@@ -40,6 +41,14 @@ namespace MailChimpApp.Controllers
             var result = m.GetAllMember(listId);
 
             return View(result);
+        }
+
+        public ActionResult List(string listId)
+        {
+            listId = "32a83f0ce0";
+            lists.DeleteList(listId);
+
+            return View("Index");
         }
     }
 }

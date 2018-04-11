@@ -62,7 +62,7 @@ namespace MailChimpApp.ApiMailChimp
             Task<Folder> result = null;
 
             if (folderId != null && folderName != null)
-                result = mailChimpManager.CampaignFolders.AddAsync(folderName);
+                result = mailChimpManager.CampaignFolders.UpdateAsync(folderId, folderName);
 
             return result.Result;
         }

@@ -14,7 +14,7 @@ namespace MailChimpApp.ApiMailChimp
 
         public static MailChimpManager MailChimpService()
         {
-            if (mailChimpManager == null)3
+            if (mailChimpManager == null)
             {
                 mailChimpManager = new MailChimpManager(apiKey);
             }

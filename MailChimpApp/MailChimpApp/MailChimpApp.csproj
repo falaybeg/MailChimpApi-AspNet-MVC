@@ -142,11 +142,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiMailChimp\ActivitiesApi.cs" />
+    <Compile Include="ApiMailChimp\AutomationApi.cs" />
     <Compile Include="ApiMailChimp\CampaignFolderApi.cs" />
     <Compile Include="ApiMailChimp\CampaignsApi.cs" />
     <Compile Include="ApiMailChimp\ListsApi.cs" />
+    <Compile Include="ApiMailChimp\ListSegment.cs" />
     <Compile Include="ApiMailChimp\MailChimpServiceApi.cs" />
     <Compile Include="ApiMailChimp\MembersApi.cs" />
+    <Compile Include="ApiMailChimp\NotesApi.cs" />
+    <Compile Include="ApiMailChimp\ReportsApi.cs" />
     <Compile Include="ApiMailChimp\TemplateApi.cs" />
     <Compile Include="ApiMailChimp\TemplateFolderApi.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
