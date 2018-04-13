@@ -1,7 +1,11 @@
 ﻿@model MailChimpApp.Models.MemberModel
 
+<a href="@Url.Action("GetAllMember","Home")" class="btn btn-primary">Get Subscriber List</a>
+<br />
+
 <br>
 <div class="form-group">
+
 
 
     @using (Html.BeginForm("AddSubscribe", "Home", FormMethod.Post))
@@ -14,6 +18,7 @@
             <span>@Model.TextMessage</span>
         }
     }
+
 
 
 </div>

@@ -1,0 +1,10 @@
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\obj\Debug\MailChimpService.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\obj\Debug\MailChimpService.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\bin\Debug\MailChimpService.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\bin\Debug\MailChimpService.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\bin\Debug\MailChimp.Net.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\obj\Debug\MailChimpService.csproj.CopyComplete
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\obj\Debug\MailChimpService.dll
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpService\obj\Debug\MailChimpService.pdb

@@ -1,44 +1,45 @@
-﻿using MailChimpApp.ApiMailChimp;
-using MailChimpApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MailChimpApp.Models;
+using MailChimpService.ApiServices;
 
 namespace MailChimpApp.Controllers
 {
     public class HomeController : Controller
     {
-        MembersApi m = new MembersApi();
-        ListsApi lists = new ListsApi();
         MemberModel message = null;
+        MembersApi member = new MembersApi();
+        ListsApi lists = new ListsApi();
 
         public ActionResult Index()
         {
             return View();
         }
-
+       
 
         public ActionResult AddSubscribe(string email)
         {
             if (email != null)
             {
-                m.AddSubscribe("c97e72b500", email);
+                member.AddSubscribe("c97e72b500", email);
+
                 message = new MemberModel
                 {
                     TextMessage = "Thank you for Subscribing !"
                 };
             }
 
-            return View("AddSubscribe",message);
+            return View("AddSubscribe", message);
         }
 
 
         public ActionResult GetAllMember(string listId)
         {
             listId = "c97e72b500";
-            var result = m.GetAllMember(listId);
+            var result = member.GetAllMember(listId);
 
             return View(result);
         }
@@ -50,5 +51,9 @@ namespace MailChimpApp.Controllers
 
             return View("Index");
         }
+
+
+
+
     }
 }

@@ -142,37 +142,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiMailChimp\AbuseReportApi.cs" />
-    <Compile Include="ApiMailChimp\ActivitiesApi.cs" />
-    <Compile Include="ApiMailChimp\AutomationsApi.cs" />
-    <Compile Include="ApiMailChimp\AutomationEmailsApi.cs" />
-    <Compile Include="ApiMailChimp\AutomationEmailQueuesApi.cs" />
-    <Compile Include="ApiMailChimp\AutomationSubscribersApi.cs" />
-    <Compile Include="ApiMailChimp\BatchesApi.cs" />
-    <Compile Include="ApiMailChimp\BatchWebhooksApi.cs" />
-    <Compile Include="ApiMailChimp\CampaignFolderApi.cs" />
-    <Compile Include="ApiMailChimp\CampaignsApi.cs" />
-    <Compile Include="ApiMailChimp\ClientsApi.cs" />
-    <Compile Include="ApiMailChimp\ContentApi.cs" />
-    <Compile Include="ApiMailChimp\ConversationsApi.cs" />
-    <Compile Include="ApiMailChimp\ECommerceSitesApi.cs" />
-    <Compile Include="ApiMailChimp\FeedbackApi.cs" />
-    <Compile Include="ApiMailChimp\FileManagerFilesApi.cs" />
-    <Compile Include="ApiMailChimp\FileManagerFolderApi.cs" />
-    <Compile Include="ApiMailChimp\GrowthHistoryApi.cs" />
-    <Compile Include="ApiMailChimp\InterestsApi.cs" />
-    <Compile Include="ApiMailChimp\InterestsCategoriesApi.cs" />
-    <Compile Include="ApiMailChimp\LimitApi.cs" />
-    <Compile Include="ApiMailChimp\ListsApi.cs" />
-    <Compile Include="ApiMailChimp\ListSegment.cs" />
-    <Compile Include="ApiMailChimp\MailChimpServiceApi.cs" />
-    <Compile Include="ApiMailChimp\MembersApi.cs" />
-    <Compile Include="ApiMailChimp\MergeFieldsApi.cs" />
-    <Compile Include="ApiMailChimp\NotesApi.cs" />
-    <Compile Include="ApiMailChimp\ReportsApi.cs" />
-    <Compile Include="ApiMailChimp\TemplateApi.cs" />
-    <Compile Include="ApiMailChimp\TemplateFolderApi.cs" />
-    <Compile Include="ApiMailChimp\WebhooksApi.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -220,6 +189,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\AddSubscribe.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\GetAllMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -236,6 +206,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailChimpService\MailChimpService.csproj">
+      <Project>{db745080-a4a7-4900-89fa-048e53cd07e9}</Project>
+      <Name>MailChimpService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

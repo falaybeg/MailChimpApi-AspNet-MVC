@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MailChimp.Net.Models.Member>
+
+@{
+    ViewBag.Title = "GetAllMember";
+}
+
+<h2>All Subscribers</h2>
+
+<p>
+    <a href="@Url.Action("AddSubscribe","Home")" class="btn btn-primary">New Subscribe</a>
+</p>
+<table class="table">
+    <tr>
+        <th style="background-color: lightslategrey">Email Address</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.EmailAddress 
+        </td>
+    </tr>
+}
+
+</table>
