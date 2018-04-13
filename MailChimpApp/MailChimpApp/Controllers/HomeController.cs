@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MailChimp.Net.Models;
 using MailChimpApp.Models;
 using MailChimpService.ApiServices;
 
@@ -10,18 +11,20 @@ namespace MailChimpApp.Controllers
 {
     public class HomeController : Controller
     {
-        MemberModel message = null;
         MembersApi member = new MembersApi();
-        ListsApi lists = new ListsApi();
+        ListsApi list = new ListsApi();
 
         public ActionResult Index()
         {
             return View();
         }
-       
+
+
+        #region Members
 
         public ActionResult AddSubscribe(string email)
         {
+            MemberModel message = null;
             if (email != null)
             {
                 member.AddSubscribe("c97e72b500", email);
@@ -35,7 +38,6 @@ namespace MailChimpApp.Controllers
             return View("AddSubscribe", message);
         }
 
-
         public ActionResult GetAllMember(string listId)
         {
             listId = "c97e72b500";
@@ -43,14 +45,42 @@ namespace MailChimpApp.Controllers
 
             return View(result);
         }
+        #endregion
 
-        public ActionResult List(string listId)
+        #region Lists
+
+        public ActionResult AddList(List newList)
+        {
+            if (newList.Name != null)
+            {
+                newList.CampaignDefaults.Language = "en";
+                newList.Contact.Country = "TR";
+                newList.Contact.State = "";
+
+                list.AddOrUpdateList(newList);
+                return RedirectToAction("GetAllList");
+            }
+
+            return View("AddList");
+        }
+
+        public ActionResult GetAllList()
+        {
+            var result = list.GetAllLists();
+
+            return View(result);
+        }
+
+        public ActionResult DeleteList(string listId)
         {
             listId = "32a83f0ce0";
-            lists.DeleteList(listId);
+            list.DeleteList(listId);
 
-            return View("Index");
+            return RedirectToAction("GetAllList");
         }
+
+        #endregion
+
 
 
 

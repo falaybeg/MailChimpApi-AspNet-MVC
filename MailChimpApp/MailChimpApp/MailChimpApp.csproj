@@ -190,6 +190,8 @@
     <Content Include="Views\Home\AddSubscribe.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GetAllMember.cshtml" />
+    <Content Include="Views\Home\GetAllList.cshtml" />
+    <Content Include="Views\Home\AddList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
