@@ -214,6 +214,7 @@
     <Content Include="Views\Template\UpdateTemplate.cshtml" />
     <Content Include="Views\Campaign\GetAllCampaigns.cshtml" />
     <Content Include="Views\Campaign\AddCampaign.cshtml" />
+    <Content Include="Views\Campaign\TestCampaign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

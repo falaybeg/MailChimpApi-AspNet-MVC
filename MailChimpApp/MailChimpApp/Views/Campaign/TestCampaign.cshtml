@@ -1,0 +1,29 @@
+﻿@model MailChimpApp.Models.MemberModel
+
+<a href="@Url.Action("GetAllCampaign","Campaign")" class="btn btn-primary">Get All Campaigns</a>
+<br />
+
+<br>
+<div class="form-group">
+
+
+
+    @using (Html.BeginForm("TestCampaign", "Campaign", FormMethod.Post))
+    {
+        <div class="form-inline">
+            <label>Campaign Id: </label>
+            <input type="text" name="campaignId" />
+        </div>
+        <div class="form-inline">
+            <label>Email: </label>
+            <input type="text" name="email" />
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Send Test Email" />
+
+        if (@Model != null)
+        {
+            <span>@Model.TextMessage</span>
+        }
+    }
+</div>

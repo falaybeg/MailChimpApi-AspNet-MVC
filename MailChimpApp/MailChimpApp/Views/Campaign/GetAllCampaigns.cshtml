@@ -6,28 +6,29 @@
 
 <h2>All Campaign</h2>
 
-<p><a href="@Url.Action("AddCampaign","Campaign")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New Campaign</span></a></p>
-
+<p><a href="@Url.Action("AddCampaign","Campaign")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New Campaign</span></a>
+<a href="@Url.Action("TestCampaign","Campaign")" class="label label-warning" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> Send Test Campaign</span></a></p>
 <table class="table table-hover">
 
     <thead>
-    <tr style="background-color: antiquewhite">
-
-        <th>Title</th>
-        <th>Status</th>
-        <th>Type</th>
-        <th>Created Date</th>
-        <th>From Name</th>
-        <th>Reply To</th>
-        <th></th>
-    </tr>
+        <tr style="background-color: antiquewhite">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Type</th>
+            <th>Created Date</th>
+            <th>From Name</th>
+            <th>Reply To</th>
+            <th></th>
+        </tr>
     </thead>
 
     <tbody>
         @foreach (var item in Model)
         {
             <tr id="row_@item.Id">
-                <td><a href="@Url.Action("","",new { })">@item.Settings.Title</a> </td>
+                <td>@item.Id</td>
+                <td><a href="@Url.Action("GetCampaign","Campaign",new { campaignId = item.Id })">@item.Settings.Title</a> </td>
                 <td>@item.Status</td>
                 <td>@item.Type</td>
                 <td>@item.CreateTime</td>

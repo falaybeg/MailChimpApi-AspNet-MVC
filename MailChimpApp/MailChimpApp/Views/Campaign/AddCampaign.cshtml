@@ -5,30 +5,47 @@
 
 <h2>AddCampaign</h2>
 
-@using (Html.BeginForm("AddList", "List", FormMethod.Post))
+@using (Html.BeginForm("AddCampaign", "Campaign", FormMethod.Post))
 {
-    <div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
+<div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Settings.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Settings.Title, new { htmlAttributes = new { @class = "form-control" } })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.PermissionReminder, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PermissionReminder, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example: “You are receiving this email because you opted in at our website …”" } })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contact.Company, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contact.Company, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
-
-        <button class="btn btn-success"><span><i class="glyphicon glyphicon-ok"></i></span>&nbsp;Save</button>
-
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Recipients.ListId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Recipients.ListId, new { htmlAttributes = new { @class = "form-control", } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Settings.FromName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Settings.FromName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Settings.ReplyTo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Settings.ReplyTo, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Settings.SubjectLine, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Settings.SubjectLine, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Settings.TemplateId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Settings.TemplateId, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <button class="btn btn-success"><span><i class="glyphicon glyphicon-ok"></i></span>&nbsp;Save</button>
+
+</div>
 }

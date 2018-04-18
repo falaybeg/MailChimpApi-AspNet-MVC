@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home Page", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MailChimp App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,15 +25,6 @@
                     <li>@Html.ActionLink("Campaign", "GetAllCampaigns", "Campaign")</li>
                     <li>@Html.ActionLink("Lists", "GetAllList", "List")</li>
                     <li>@Html.ActionLink("Template", "GetAllTemplates", "Template")</li>
-
-
-
-                    <li>@Html.ActionLink("Member Subscribe", "AddSubscribe", "Member")</li>
-
-
-
-
-
                     <li>@Html.ActionLink("Report", "GetAllTemplates", "Template")</li>
                 </ul>
             </div>
@@ -43,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MailChimp Sample App</p>
         </footer>
     </div>
 

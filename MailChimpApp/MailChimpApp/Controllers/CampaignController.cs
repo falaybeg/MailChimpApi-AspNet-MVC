@@ -2,6 +2,7 @@
 using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MailChimpApp.ApiManager;
+using MailChimpApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,31 @@ namespace MailChimpApp.Controllers
 {
     public class CampaignController : Controller
     {
-        IMailChimpManager campaign = MailChimApiManager.MailChimpService();
+        IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
 
-        public ActionResult AddCampaign(Campaign camp)
+        public ActionResult AddCampaign( )
         {
             
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult AddCampaign(Campaign campaign)
+        {
+            if (campaign != null)
+            {
+                campaign.Type = CampaignType.Regular;
+                mailChimpManager.Campaigns.AddAsync(campaign);
+                return RedirectToAction("GetAllCampaigns");
+            }
             return View();
         }
 
         public ActionResult DeleteCampaign(string campaignId)
         {
             if (campaignId != null)
-                campaign.Campaigns.DeleteAsync(campaignId);
+                mailChimpManager.Campaigns.DeleteAsync(campaignId);
 
             return RedirectToAction("GetAllCampaigns");
         }
@@ -34,7 +46,7 @@ namespace MailChimpApp.Controllers
         public ActionResult GetAllCampaigns()
         {
             Task<IEnumerable<Campaign>> result = null;
-            result = campaign.Campaigns.GetAll();
+            result = mailChimpManager.Campaigns.GetAll();
 
             return View(result.Result);
         }
@@ -44,28 +56,48 @@ namespace MailChimpApp.Controllers
             Task<Campaign> result = null;
 
             if (campaignId != null)
-                result = campaign.Campaigns.GetAsync(campaignId);
+                result = mailChimpManager.Campaigns.GetAsync(campaignId);
 
             return View(result.Result);
+        }
+
+        public ActionResult TestCampaign(string campaignId, string[] email)
+        {
+            MemberModel message = null;
+            if (campaignId != null && email != null)
+            {
+                CampaignTestRequest content = new CampaignTestRequest
+                {
+                    Emails = email,
+                    EmailType = "html"
+                };
+                mailChimpManager.Campaigns.TestAsync(campaignId, content);
+                message = new MemberModel
+                {
+                    TextMessage = "Test Email has been sent !"
+                }; 
+
+            }
+            return View(message);
         }
 
         public void ScheduleCampaign(string campaignId, CampaignScheduleRequest content = null)
         {
             if (campaignId != null && content != null)
-                campaign.Campaigns.ScheduleAsync(campaignId, content);
+                mailChimpManager.Campaigns.ScheduleAsync(campaignId, content);
         }
 
         public void SendCampaign(string campaignId)
         {
-            campaign.Campaigns.SendAsync(campaignId);
+            mailChimpManager.Campaigns.SendAsync(campaignId);
         }
 
         public ActionResult UpdateCampaign(string campaignId, Campaign campaignModel)
         {
             Task<Campaign> result = null;
 
-            if (campaignId != null && campaign != null)
-                result = campaign.Campaigns.UpdateAsync(campaignId, campaignModel);
+            if (campaignId != null && campaignModel != null)
+                result = mailChimpManager.Campaigns.UpdateAsync(campaignId, campaignModel);
 
             return View(result.Result);
         }
