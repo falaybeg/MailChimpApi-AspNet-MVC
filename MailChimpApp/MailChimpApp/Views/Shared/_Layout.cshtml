@@ -21,9 +21,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("Member Subscribe", "AddSubscribe", "Home")</li>
-                    <li>@Html.ActionLink("Lists", "AddList", "Home")</li>
 
+                    <li>@Html.ActionLink("Campaign", "GetAllCampaigns", "Campaign")</li>
+                    <li>@Html.ActionLink("Lists", "GetAllList", "List")</li>
+                    <li>@Html.ActionLink("Template", "GetAllTemplates", "Template")</li>
+
+
+
+                    <li>@Html.ActionLink("Member Subscribe", "AddSubscribe", "Member")</li>
+
+
+
+
+
+                    <li>@Html.ActionLink("Report", "GetAllTemplates", "Template")</li>
                 </ul>
             </div>
         </div>

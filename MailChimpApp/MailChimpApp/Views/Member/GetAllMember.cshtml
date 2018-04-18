@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MailChimp.Net.Models.Member>
+@{
+    ViewBag.Title = "Member of List";
+
+}
+<h2>List Members</h2>
+<input id="listid" type="hidden" value="@ViewBag.listId" />
+
+<p><a href="@Url.Action("AddSubscribe","Member")" class="btn btn-primary">New Subscribe</a></p>
+
+<table class="table table-hover">
+
+    <thead>
+        <tr style="background-color: antiquewhite">
+            <th>Email Address</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Contact Rating</th>
+            <th>Date Added</th>
+            <th>Last Changed</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.Id">
+                <td><a id="email" href="@Url.Action("GetMember","Member",new {listId = ViewBag.listId, emailAddress = item.EmailAddress })">@item.EmailAddress</a></td>
+                
+
+                <td>@item.MergeFields["FNAME"]</td>
+                <td>@item.MergeFields["LNAME"]</td>
+                <td>@item.MergeFields["ADDRESS"]</td>
+                <td>@item.Status</td>
+                <td>@item.TimestampOpt</td>
+                <td>@item.LastChanged</td>
+               <td><a onclick="Delete('@item.EmailAddress', '@item.Id')" class="btn btn-danger">Delete</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script>
+
+    var Delete = function (emailData, idData) {
+
+        var list = $("#listid").val();
+        var email = emailData;
+        var id = idData;
+
+        $.ajax({
+            type: "POST",
+            url: "/Member/DeleteMember",
+            data: { listId: list, emailAddress: email },
+            success: function (result) {
+                $("#row_" + id).remove();
+                alert("Member Deleted !");
+            },
+            error: function (result) {
+                alert("Encountered with error");
+            }
+        });
+
+    }
+
+</script>

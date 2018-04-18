@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MailChimp.Net.Models.Template>
+
+@{
+    ViewBag.Title = "Get All Templates";
+}
+
+<h2>All Templates</h2>
+
+<p><a href="@Url.Action("CreateTemplate","Template")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New Template</span></a></p>
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>Template Id</th>
+            <th>Template Name</th>
+            <th>Created By</th>
+            <th>Date Created</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr id="row_@item.Id">
+
+            <td><a href="@Url.Action("GetTemplate", "Template", new { templateId = item.Id })">@item.Name</a></td>
+            <td>@item.CreatedBy</td>
+            <td>@item.DateCreated</td>
+            <td>@item.Active</td>
+            <td>
+                <a onclick="Delete('@item.Id')" class="btn btn-danger">Delete</a>
+                <a href="@Url.Action("UpdateTemplate", "Template", new { templateId = item.Id })" class="btn btn-warning">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script>
+
+    var Delete = function (id) {
+
+        $.ajax({
+            type: "POST",
+            url: "/Template/DeleteTemplate",
+            data: { templateId: id },
+            success: function (result) {
+                $("#row_" + id).remove();
+                alert("Template has been deleted !");
+            },
+            error: function (result) {
+                alert("Encountered with a Error");
+            }
+        });
+    }
+
+</script>

@@ -1,7 +1,16 @@
-﻿@{
+﻿@model MailChimpApp.Models.MemberModel
+@{
     ViewBag.Title = "Home Page";
 }
 
 <center>
     <h3>Asp.Net MVC <b>MailChimp</b> API</h3>
 </center>
+
+
+<div>
+    @if(Model != null)
+    {
+        @Model.TextMessage
+    }
+</div>

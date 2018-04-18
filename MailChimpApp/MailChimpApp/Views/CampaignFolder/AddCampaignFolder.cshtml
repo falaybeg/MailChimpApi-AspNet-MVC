@@ -1,0 +1,18 @@
+﻿
+<a href="@Url.Action("GetAllCampaignFolder","CampaignFolder")" class="btn btn-primary">Get All Folder</a>
+<br />
+
+<br>
+<div class="form-group">
+
+
+
+    @using (Html.BeginForm("AddCampaignFolder", "CampaignFolder", FormMethod.Post))
+    {
+        <input type="text" id="subscribe" name="folderName" />
+        <input type="submit" value="Create Folder" class="btn btn-success"/>
+    }
+
+
+
+</div>

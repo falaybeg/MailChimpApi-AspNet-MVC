@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MailChimp.Net.Models.Member>
+@{
+    ViewBag.Title = "GetList";
+
+}
+<h2>List Members</h2>
+
+
+<p><a href="@Url.Action("AddSubscribe","Member")" class="btn btn-primary">New Subscribe</a></p>
+
+<table class="table table-hover">
+
+    <thead>
+        <tr style="background-color: antiquewhite">
+            <th>Email Address</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Source</th>
+            <th>Contact Rating</th>
+            <th>Date Added</th>
+            <th>Last Changed</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.EmailAddress
+            </td>
+            @foreach (var name in item.MergeFields.Values)
+            {
+                <td>@name</td>
+            }
+
+            <td>@item.Status</td>
+            <td> @item.MemberRating</td>
+            <td>@item.TimestampOpt</td>
+            <td>@item.LastChanged</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+

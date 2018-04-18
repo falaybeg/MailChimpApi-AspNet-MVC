@@ -1,0 +1,22 @@
+﻿@model MailChimp.Net.Models.Template
+@{
+    ViewBag.Title = Model.Name+ " Template";
+}
+
+<br />
+
+
+<div class="row">
+    <div class="col-sm-8">
+    <img  src="@Model.Thumbnail" style="width: 750px; border: 1px solid;"/>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-control"><b>Template Name:</b> @Model.Name</div>
+        <div class="form-control"><b>Category:</b> @Model.Category</div>
+        <div class="form-control"><b>Created By:</b> @Model.CreatedBy</div>
+        <div class="form-control"><b>Created Date:</b> @Model.DateCreated</div>
+        <div class="form-control"><b>Responsive: </b>@Model.Responsive</div>
+        <div class="form-control"><b>Active: </b>@Model.Active</div>
+        <div class="form-control    "><b>Url: </b>@Model.ShareUrl</div>
+    </div>
+</div>

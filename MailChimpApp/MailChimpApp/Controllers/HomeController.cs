@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MailChimp.Net;
+using MailChimp.Net.Interfaces;
 using MailChimp.Net.Models;
 using MailChimpApp.Models;
 using MailChimpService.ApiServices;
@@ -13,12 +15,25 @@ namespace MailChimpApp.Controllers
     {
         MembersApi member = new MembersApi();
         ListsApi list = new ListsApi();
+        TemplateApi templ = new TemplateApi();
+
+
+        IMailChimpManager mailChimpManager = new MailChimpManager("asdsadsa");
+
+        
+        public ActionResult NewTemplate()
+        {
+          
+            return View("Index");
+        }
+
 
         public ActionResult Index()
         {
             return View();
         }
 
+        // dependency injection kullanmak - IoC container use, AutoFac pattern, singleton
 
         #region Members
 

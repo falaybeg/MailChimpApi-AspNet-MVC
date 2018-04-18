@@ -18,9 +18,9 @@ namespace MailChimpService.ApiServices
         {
             Task<Template> result = null; 
             
-            if(templateName != null && folderId != null && html != null)
+            if(templateName != null && html != null)
             {
-                mailChimpManager.Templates.CreateAsync(templateName, folderId, html);
+               result = mailChimpManager.Templates.CreateAsync(templateName, folderId, html);
             }
 
             return result.Result;

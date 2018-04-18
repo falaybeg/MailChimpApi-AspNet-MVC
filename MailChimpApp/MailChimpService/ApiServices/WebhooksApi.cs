@@ -12,7 +12,7 @@ namespace MailChimpService.ApiServices
 {
     public class WebhooksApi
     {
-
+        // Web 
         IMailChimpManager mailChimpManager = MailChimpServiceApi.MailChimpService();
 
         public WebHook AddOrUpdateList(string listId, WebHook webhook)

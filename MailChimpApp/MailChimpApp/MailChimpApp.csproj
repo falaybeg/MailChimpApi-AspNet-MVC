@@ -142,10 +142,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiManager\MailChimApiManager.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CampaignController.cs" />
+    <Compile Include="Controllers\CampaignFolderController.cs" />
+    <Compile Include="Controllers\GrowthHistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,9 +171,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -192,9 +200,24 @@
     <Content Include="Views\Home\GetAllMember.cshtml" />
     <Content Include="Views\Home\GetAllList.cshtml" />
     <Content Include="Views\Home\AddList.cshtml" />
+    <Content Include="Views\List\AddList.cshtml" />
+    <Content Include="Views\CampaignFolder\GetAllCampaignFolder.cshtml" />
+    <Content Include="Views\CampaignFolder\AddCampaignFolder.cshtml" />
+    <Content Include="Views\Template\CreateTemplate.cshtml" />
+    <Content Include="Views\Template\GetAllTemplates.cshtml" />
+    <Content Include="Views\List\GetAllList.cshtml" />
+    <Content Include="Views\List\GetList.cshtml" />
+    <Content Include="Views\Member\GetAllMember.cshtml" />
+    <Content Include="Views\Member\AddSubscribe.cshtml" />
+    <Content Include="Views\Member\GetMember.cshtml" />
+    <Content Include="Views\Template\GetTemplate.cshtml" />
+    <Content Include="Views\Template\UpdateTemplate.cshtml" />
+    <Content Include="Views\Campaign\GetAllCampaigns.cshtml" />
+    <Content Include="Views\Campaign\AddCampaign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GrowthHistory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -207,7 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MailChimpService\MailChimpService.csproj">

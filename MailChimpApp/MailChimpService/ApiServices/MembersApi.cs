@@ -20,20 +20,18 @@ namespace MailChimpService.ApiServices
             if (subscribe != null)
             {
                 // var listId = "c97e72b500";
+
                 var member = new Member { EmailAddress = subscribe, StatusIfNew = Status.Subscribed };
                 var result = this.mailChimpManager.Members.AddOrUpdateAsync(listId, member);
             }
         }
 
-        public  IEnumerable<Member> GetAllMember(string listId)
+        public IEnumerable<Member> GetAllMember(string listId)
         {
             Task<IEnumerable<Member>> result = null;
 
             if(listId != null)
-            {
                 result =  this.mailChimpManager.Members.GetAllAsync(listId);
-
-            }
             return result.Result;
         }
 

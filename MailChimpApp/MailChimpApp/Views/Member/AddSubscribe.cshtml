@@ -1,0 +1,24 @@
+﻿@model MailChimp.Net.Models.Member
+
+<a href="@Url.Action("GetAllList","List")" class="btn btn-primary">Get All List</a>
+<br />
+
+<br>
+<div class="form-group">
+
+
+
+    @using (Html.BeginForm("AddSubscribe", "Member", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>List Id: </label>
+            <input type="text" id="subscribe" name="listId" />
+        </div>
+        <div class="form-group">
+            <label>Email Address: </label>
+            @Html.TextBoxFor(x => x.EmailAddress)
+        </div>
+
+        <input type="submit" value="Subscribe" />
+    }
+</div>

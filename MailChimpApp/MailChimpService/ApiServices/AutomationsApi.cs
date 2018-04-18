@@ -15,6 +15,7 @@ namespace MailChimpService.ApiServices
         IMailChimpManager mailChimpManager = MailChimpServiceApi.MailChimpService();
 
 
+
         public IEnumerable<Automation> GetAllAutomation(QueryableBaseRequest request = null)
         {
             Task<IEnumerable<Automation>> result = null;

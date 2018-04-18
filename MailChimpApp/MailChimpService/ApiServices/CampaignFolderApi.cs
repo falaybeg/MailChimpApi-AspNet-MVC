@@ -29,7 +29,7 @@ namespace MailChimpService.ApiServices
             return result.Result;
         }
 
-        public IEnumerable<Folder> AddCampaignFolder(QueryableBaseRequest request = null)
+        public IEnumerable<Folder> GetAllCampaignFolder(QueryableBaseRequest request = null)
         {
             Task<IEnumerable<Folder>> result = null;
 

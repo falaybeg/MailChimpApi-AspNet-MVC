@@ -1,0 +1,40 @@
+﻿@model MailChimp.Net.Models.Member
+@{
+    ViewBag.Title = "GetMember";
+}
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-6">
+            <div class="row"  style="border: 1px solid">
+                <b> @Model.EmailAddress</b>
+                <br />
+                @Model.TimestampOpt 
+                <br />
+                @Model.Status
+            </div><br />
+            <div class="row" style="border: 1px solid">
+                <h4>Profile Information</h4>
+                Email Adress: @Model.EmailAddress <br />
+                First Name: @Model.MergeFields["FNAME"] <br />
+                Last Name: @Model.MergeFields["LNAME"] <br />
+                Address: @Model.MergeFields["ADDRESS"] <br />
+                Phone Number: @Model.MergeFields["ADDRESS"] <br />
+            </div>
+        </div>
+        <div class="col-sm-6" >
+            <div class="col-sm-6" style="border: 1px solid">
+                @Model.Stats.AverageOpenRate% Open Rate
+                <br />
+                @Model.Stats.AverageClickRate% Click Rate
+            </div>
+            <div class="col-sm-6" style="border: 1px solid">
+               % Total Revenue
+                <br />
+               % Average Order Value
+            </div>
+        </div>
+        </div>
+</div>

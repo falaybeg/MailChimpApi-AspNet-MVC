@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MailChimp.Net.Models.List>
+
+@{
+    ViewBag.Title = "All List";
+}
+
+<h3>All Lists</h3>
+
+<p>
+    <a href="@Url.Action("AddList","List")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New List</span> </a>
+</p>
+<table class="table table-hover">
+
+    <thead>
+        <tr style="background-color: antiquewhite">
+            <th>List Name</th>
+            <th>Subscribers</th>
+            <th>Click Rate</th>
+            <th>Company</th>
+            <th>City</th>
+            <th>Data Created</th>
+            <th>Visibility</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr id="row_@item.Id">
+            <td>
+                <a href="@Url.Action("GetAllMember", "Member", new { listId = @item.Id })">@item.Name</a>
+            </td>
+            <td>
+                @item.Stats.MemberCountSinceSend
+            </td>
+            <td>
+                @item.Stats.ClickRate
+            </td>
+            <td>
+                @item.Contact.Company
+            </td>
+            <td>
+                @item.Contact.City
+            </td>
+            <td>
+                @item.DateCreated
+            </td>
+            <td>
+                @item.Visibility
+            </td>
+            <td>
+               <a onclick="Delete('@item.Id')" class="btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<script>
+
+    var Delete = function (listId) {
+        $.ajax({
+            type: "POST",
+            url: "/List/DeleteList",
+            data: { listId: listId },
+            success: function (result) {
+                $("#row_" + listId).remove();
+                alert("List Deleted !");
+            },
+            error: function (result) {
+                alert("Encountered with error");
+            }
+        });
+    }
+
+</script>
