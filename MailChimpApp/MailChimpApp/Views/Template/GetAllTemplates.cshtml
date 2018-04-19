@@ -3,15 +3,14 @@
 @{
     ViewBag.Title = "Get All Templates";
 }
-
-<h2>All Templates</h2>
+<h1></h1>
 
 <p><a href="@Url.Action("CreateTemplate","Template")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New Template</span></a></p>
 
 <table class="table table-hover">
 
     <thead>
-        <tr>
+        <tr style="background-color: antiquewhite">
             <th>Template Id</th>
             <th>Template Name</th>
             <th>Created By</th>
@@ -26,13 +25,14 @@
         {
         <tr id="row_@item.Id">
 
+            <td>@item.Id</td>
             <td><a href="@Url.Action("GetTemplate", "Template", new { templateId = item.Id })">@item.Name</a></td>
             <td>@item.CreatedBy</td>
             <td>@item.DateCreated</td>
             <td>@item.Active</td>
             <td>
-                <a onclick="Delete('@item.Id')" class="btn btn-danger">Delete</a>
-                <a href="@Url.Action("UpdateTemplate", "Template", new { templateId = item.Id })" class="btn btn-warning">Edit</a>
+                <a onclick="Delete('@item.Id')" class="btn btn-danger"><span><i class="glyphicon glyphicon-trash"></i>Delete</span></a>
+                <a href="@Url.Action("UpdateTemplate", "Template", new { templateId = item.Id })" class="btn btn-warning"><span><i class="glyphicon glyphicon-edit"></i>Edit</span></a>
             </td>
         </tr>
         }

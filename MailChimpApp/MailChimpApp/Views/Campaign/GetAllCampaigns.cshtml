@@ -4,8 +4,7 @@
     ViewBag.Title = "Get All Campaign";
 }
 
-<h2>All Campaign</h2>
-
+<br />
 <p><a href="@Url.Action("AddCampaign","Campaign")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New Campaign</span></a>
 <a href="@Url.Action("TestCampaign","Campaign")" class="label label-warning" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> Send Test Campaign</span></a></p>
 <table class="table table-hover">
@@ -35,7 +34,7 @@
                 <td>@item.Settings.FromName</td>
                 <td>@item.Settings.ReplyTo</td>
                 <td>
-                    <a onclick="Delete('@item.Id')" class="btn btn-danger">Delete</a>
+                    <a onclick="Delete('@item.Id')" class="btn btn-danger"><span><i class="glyphicon glyphicon-trash"></i> Delete</span></a>
                 </td>
             </tr>
         }

@@ -3,12 +3,9 @@
 @{
     ViewBag.Title = "All List";
 }
+<br />
+<p><a href="@Url.Action("AddList","List")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New List</span> </a></p>
 
-<h3>All Lists</h3>
-
-<p>
-    <a href="@Url.Action("AddList","List")" class="label label-primary" style="font-size: 14px"><span><i class="glyphicon glyphicon-plus"></i> New List</span> </a>
-</p>
 <table class="table table-hover">
 
     <thead>
@@ -50,7 +47,7 @@
                 @item.Visibility
             </td>
             <td>
-               <a onclick="Delete('@item.Id')" class="btn btn-danger">Delete</a>
+                <a onclick="Delete('@item.Id')" class="btn btn-danger"><span><i class="glyphicon glyphicon-trash"></i> Delete</span> </a>
             </td>
 
         </tr>

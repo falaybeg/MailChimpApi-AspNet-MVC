@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MailChimp.Net.Models.Report>
+@{
+    ViewBag.Title = "Member of List";
+
+}
+<br />
+
+<table class="table table-hover">
+
+    <thead>
+        <tr style="background-color: antiquewhite">
+
+            <th>Campaign Name</th>
+            <th>Campaign Subject</th>
+            <th>Sent Time</th>
+            <th>Open Rate</th>
+            <th>Click Rate</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td> <a href="@Url.Action("GetReport","Report",new { campaignId = item.Id })">@item.CampaignTitle</a> </td>
+            <td>@item.SubjectLine</td>
+            <td>@item.SendTime</td>
+            <td>@item.Opens.OpenRate</td>
+            <td>@item.Clicks.ClickRate</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

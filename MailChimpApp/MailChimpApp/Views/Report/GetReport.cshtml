@@ -1,0 +1,72 @@
+﻿@model MailChimp.Net.Models.Report
+@{
+    ViewBag.Title = "GetAllReportss";
+}
+
+<h2>@Model.CampaignTitle</h2>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <p> @Model.EmailsSent Recipients</p><br />
+                <p>List:  <br /></p>
+                <p>Subject: @Model.SubjectLine</p>
+            </div>
+            <div class="col-sm-6">Delivered: @Model.SendTime</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4" style="border: 1px solid">
+
+            </div>
+            <div class="col-sm-4" style="border: 1px solid">
+
+            </div>
+            <div class="col-sm-4" style="border: 1px solid">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                Open Rate:  @Model.Opens.OpenRate <br />
+                List Average Open Rate: @Model.ListStats.OpenRate
+            </div>
+            <div class="col-sm-6">
+                Click Rate:  @Model.Clicks.ClickRate <br />
+                List Average Click Rate: @Model.ListStats.ClickRate
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3" style="border: 1px solid">
+                @Model.Opens.OpensTotal <br /> Opened
+            </div>
+            <div class="col-sm-3" style="border: 1px solid">
+                @Model.Clicks.ClicksTotal <br /> Clicked
+            </div>
+            <div class="col-sm-3" style="border: 1px solid">
+                @Model.Bounces.HardBounces <br /> Bounced
+            </div>
+            <div class="col-sm-3" style="border: 1px solid">
+                @Model.Unsubscribed <br /> Unsubscribed
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6" style="border: 1px solid">
+                <ul>Successful Deliveries <span style="float:right">@Model.Timeseries.Count()</span></ul>
+                <ul>Total opens <span style="float:right;">@Model.Opens.OpensTotal</span></ul>
+                <ul>Last opens <span style="float:right;">@Model.Opens.LastOpen</span></ul>
+                <ul>Forwarded  <span style="float:right;">@Model.Forwards.ForwardsCount</span></ul>
+            </div>
+            <div class="col-sm-6" style="border: 1px solid">
+                <ul>Clicks per unique Opens <span style="float:right">@Model.Opens.UniqueOpens </span></ul>
+                <ul>Total clicks <span style="float:right;">@Model.Clicks.ClicksTotal</span></ul>
+                <ul>Last clicked <span style="float:right;">@Model.Clicks.LastClick</span></ul>
+                <ul>Abuse reports  <span style="float:right;">@Model.AbuseReports</span></ul>
+            </div>
+        </div>
+    </div>
+</div>

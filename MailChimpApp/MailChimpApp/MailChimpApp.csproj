@@ -146,13 +146,37 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbuseReportsController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\AutomationEmailQueuesController.cs" />
+    <Compile Include="Controllers\AutomationEmailsController.cs" />
+    <Compile Include="Controllers\AutomationsController.cs" />
+    <Compile Include="Controllers\AutomationSubscribersController.cs" />
+    <Compile Include="Controllers\BatchesController.cs" />
+    <Compile Include="Controllers\BatchWebhooksController.cs" />
     <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\CampaignFolderController.cs" />
-    <Compile Include="Controllers\GrowthHistoryController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ConversationsController.cs" />
+    <Compile Include="Controllers\ECommerceStoresController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\FileManagerFilesController.cs" />
+    <Compile Include="Controllers\FileManagerFolderController.cs" />
+    <Compile Include="Controllers\GrowthHistoriesController.cs" />
+    <Compile Include="Controllers\InterestCategoriesController.cs" />
+    <Compile Include="Controllers\InterestController.cs" />
+    <Compile Include="Controllers\MergeFieldsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Controllers\ListSegmentController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
+    <Compile Include="Controllers\TemplateFolderController.cs" />
+    <Compile Include="Controllers\WebhooksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +186,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mail-chimp-1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,11 +220,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\AddSubscribe.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\GetAllMember.cshtml" />
-    <Content Include="Views\Home\GetAllList.cshtml" />
-    <Content Include="Views\Home\AddList.cshtml" />
     <Content Include="Views\List\AddList.cshtml" />
     <Content Include="Views\CampaignFolder\GetAllCampaignFolder.cshtml" />
     <Content Include="Views\CampaignFolder\AddCampaignFolder.cshtml" />
@@ -215,10 +236,36 @@
     <Content Include="Views\Campaign\GetAllCampaigns.cshtml" />
     <Content Include="Views\Campaign\AddCampaign.cshtml" />
     <Content Include="Views\Campaign\TestCampaign.cshtml" />
+    <Content Include="Views\Report\GetReport.cshtml" />
+    <Content Include="Views\Report\GetAllReports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AbuseReports\" />
+    <Folder Include="Views\Activities\" />
+    <Folder Include="Views\AutomationEmailQueues\" />
+    <Folder Include="Views\AutomationEmails\" />
+    <Folder Include="Views\AutomationSubscribers\" />
+    <Folder Include="Views\Automations\" />
+    <Folder Include="Views\Batches\" />
+    <Folder Include="Views\BatchWebhooks\" />
+    <Folder Include="Views\Clients\" />
+    <Folder Include="Views\Content\" />
+    <Folder Include="Views\Conversations\" />
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\ECommerceStores\" />
+    <Folder Include="Views\Feedback\" />
+    <Folder Include="Views\FileManagerFolder\" />
+    <Folder Include="Views\FileManager\" />
+    <Folder Include="Views\GrowthHistories\" />
     <Folder Include="Views\GrowthHistory\" />
+    <Folder Include="Views\InterestCategories\" />
+    <Folder Include="Views\Interest\" />
+    <Folder Include="Views\ListSegment\" />
+    <Folder Include="Views\Messages\" />
+    <Folder Include="Views\Notes\" />
+    <Folder Include="Views\TemplateFolder\" />
+    <Folder Include="Views\Webhooks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -231,12 +278,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MailChimpService\MailChimpService.csproj">
-      <Project>{db745080-a4a7-4900-89fa-048e53cd07e9}</Project>
-      <Name>MailChimpService</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

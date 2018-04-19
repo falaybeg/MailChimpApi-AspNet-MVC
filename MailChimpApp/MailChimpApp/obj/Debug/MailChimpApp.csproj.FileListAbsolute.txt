@@ -182,5 +182,3 @@ C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailCh
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpApp\obj\Debug\MailChimpApp.csproj.CopyComplete
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpApp\obj\Debug\MailChimpApp.dll
 C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpApp\obj\Debug\MailChimpApp.pdb
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpApp\bin\MailChimpService.dll
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\MailChimp-Sample-App\MailChimpApp\MailChimpApp\bin\MailChimpService.pdb

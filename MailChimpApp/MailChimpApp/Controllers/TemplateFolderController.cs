@@ -11,52 +11,53 @@ using System.Web.Mvc;
 
 namespace MailChimpApp.Controllers
 {
-    public class CampaignFolderController : Controller
+    public class TemplateFolderController : Controller
     {
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
-        public ActionResult AddCampaignFolder(string folderName)
+        public ActionResult AddTemplateFolder(string folderName)
         {
             Task<Folder> result = null;
             if (folderName != null)
-                result = mailChimpManager.CampaignFolders.AddAsync(folderName);
+                result = mailChimpManager.TemplateFolders.AddAsync(folderName);
 
             return View(result.Result);
         }
 
-        public ActionResult DeleteCampaignFolder(string folderId)
+        public ActionResult DeleteTemplateFolder(string folderId)
         {
             if (folderId != null)
-                mailChimpManager.CampaignFolders.DeleteAsync(folderId);
+                mailChimpManager.TemplateFolders.DeleteAsync(folderId);
 
             return View();
         }
 
-        public ActionResult GetAllCampaignFolder(QueryableBaseRequest request = null)
+        public ActionResult GetAllTemplateFolders(QueryableBaseRequest request = null)
         {
             Task<IEnumerable<Folder>> result = null;
 
             if (request != null)
-                result = mailChimpManager.CampaignFolders.GetAllAsync(request);
+                result = mailChimpManager.TemplateFolders.GetAllAsync(request);
 
             return View(result.Result);
         }
 
-        public ActionResult GetCampaignFolder(string folderId, BaseRequest request = null)
+        public ActionResult GetTemplateFolder(string folderId, BaseRequest request = null)
         {
             Task<Folder> result = null;
-            if (folderId != null)
-                result = mailChimpManager.CampaignFolders.GetAsync(folderId, request);
+
+            if (request != null)
+                result = mailChimpManager.TemplateFolders.GetAsync(folderId, request);
 
             return View(result.Result);
         }
 
-        public ActionResult GetCampaignFolderResponse(QueryableBaseRequest request = null)
+        public ActionResult GetTemplateFolderResponse(QueryableBaseRequest request = null)
         {
-            Task<CampaignFolderResponse> result = null;
+            Task<TemplateFolderResponse> result = null;
 
             if (request != null)
-                result = mailChimpManager.CampaignFolders.GetResponseAsync(request);
+                result = mailChimpManager.TemplateFolders.GetResponseAsync(request);
 
             return View(result.Result);
         }
@@ -66,10 +67,9 @@ namespace MailChimpApp.Controllers
             Task<Folder> result = null;
 
             if (folderId != null && folderName != null)
-                result = mailChimpManager.CampaignFolders.UpdateAsync(folderId, folderName);
+                result = mailChimpManager.TemplateFolders.UpdateAsync(folderId, folderName);
 
             return View(result.Result);
         }
-
     }
 }

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using MailChimpApp.ApiManager;
 using System.Threading.Tasks;
+using MailChimp.Net.Core;
 
 namespace MailChimpApp.Controllers
 {
@@ -45,19 +46,15 @@ namespace MailChimpApp.Controllers
 
         public ActionResult GetListInfo(string listId)
         {
-            // Get List Information
             Task<List> result = null;
             if (listId != null)
                 result = mailChimpManager.Lists.GetAsync(listId);
 
             return View(result.Result);
-
         }
 
         public ActionResult GetList(string listId)
         {
-            // Get List Member 
-
             Task<IEnumerable<Member>> result = null;
             if (listId != null)
                 result = mailChimpManager.Members.GetAllAsync(listId);
@@ -65,7 +62,13 @@ namespace MailChimpApp.Controllers
             return View(result.Result.Select(x => x.Status == Status.Subscribed));
         }
 
-        
+        public ActionResult GetListResponse(ListRequest request = null)
+        {
+            Task<ListResponse> result = null;
+            result = mailChimpManager.Lists.GetResponseAsync(request);
+
+            return View(result.Result);
+        }
 
     }
 }
