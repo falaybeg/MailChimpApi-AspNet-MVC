@@ -13,9 +13,12 @@ namespace MailChimpApp.Controllers
 {
     public class NotesController : Controller
     {
+        /// <summary>
+        /// NotesController is to add a note for our member 
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
-
-
+    
         public ActionResult AddOrUpdateList(string listId, string emailAddressOrHash, string noteId, string note)
         {
             Task<Note> result = null;

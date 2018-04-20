@@ -13,8 +13,11 @@ namespace MailChimpApp.Controllers
 {
     public class ReportController : Controller
     {
+        /// <summary>
+        /// Here we can get all reports about our campaigns. 
+        /// Subscribers, Unscribers, TotalClicks, TotalOpens.. etc
+        /// </summary>
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
-
 
         public ActionResult GetAllReports()
         {
@@ -23,7 +26,6 @@ namespace MailChimpApp.Controllers
 
             return View(result.Result);
         }
-
 
         public ActionResult GetReport(string campaignId)
         {

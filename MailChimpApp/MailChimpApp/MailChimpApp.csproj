@@ -258,7 +258,6 @@
     <Folder Include="Views\FileManagerFolder\" />
     <Folder Include="Views\FileManager\" />
     <Folder Include="Views\GrowthHistories\" />
-    <Folder Include="Views\GrowthHistory\" />
     <Folder Include="Views\InterestCategories\" />
     <Folder Include="Views\Interest\" />
     <Folder Include="Views\ListSegment\" />

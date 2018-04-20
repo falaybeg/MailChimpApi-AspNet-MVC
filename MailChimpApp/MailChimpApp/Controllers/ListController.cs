@@ -13,6 +13,12 @@ namespace MailChimpApp.Controllers
 {
     public class ListController : Controller
     {
+
+        /// <summary>
+        /// Here we can manage our lists. Create a new list, delete, update... etc. 
+        /// Also we can get information about our lists
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddList(List newList)

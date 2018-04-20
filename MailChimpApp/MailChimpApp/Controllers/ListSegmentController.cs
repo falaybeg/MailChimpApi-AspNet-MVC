@@ -13,8 +13,18 @@ namespace MailChimpApp.Controllers
 {
     public class ListSegmentController : Controller
     {
+        /// <summary>
+        /// ListSegment is to target subscribers by location, engagement, activity... etc
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
+        /// <summary>
+        /// Create a ListSegment 
+        /// </summary>
+        /// <param name="listId">To create a listSegment listId is required</param>
+        /// <param name="segment"></param>
+        /// <returns></returns>
         public ActionResult AddListegment(string listId, Segment segment)
         {
             Task<ListSegment> result = null;
@@ -52,7 +62,7 @@ namespace MailChimpApp.Controllers
             return View();
         }
 
-        public ActionResult DeleteListSegment(string listId, string segmentId, string emailAddressOrHash)
+        public ActionResult DeleteListSegmentMember(string listId, string segmentId, string emailAddressOrHash)
         {
             if (listId != null && segmentId != null && emailAddressOrHash != null)
                 mailChimpManager.ListSegments.DeleteMemberAsync(listId, segmentId, emailAddressOrHash);

@@ -11,10 +11,20 @@ using System.Web.Mvc;
 
 namespace MailChimpApp.Controllers
 {
+    // <summary>
+    //
+    // </summary>
     public class TemplateFolderController : Controller
     {
+        /// <summary>
+        /// TemplateFolderController  is to organize our Template Folder.
+        /// We can create, delete folder to categorize the folders.
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
+
+        // Create new TemplateFolder
         public ActionResult AddTemplateFolder(string folderName)
         {
             Task<Folder> result = null;
@@ -24,6 +34,7 @@ namespace MailChimpApp.Controllers
             return View(result.Result);
         }
 
+        // Delete created a TemplateFolder
         public ActionResult DeleteTemplateFolder(string folderId)
         {
             if (folderId != null)

@@ -13,6 +13,10 @@ namespace MailChimpApp.Controllers
 {
     public class CampaignFolderController : Controller
     {
+        /// <summary>
+        ///  CampaignFolderController is to manage our CampaignFolders. Create a new folder, delete... 
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddCampaignFolder(string folderName)
@@ -51,22 +55,22 @@ namespace MailChimpApp.Controllers
             return View(result.Result);
         }
 
-        public ActionResult GetCampaignFolderResponse(QueryableBaseRequest request = null)
-        {
-            Task<CampaignFolderResponse> result = null;
-
-            if (request != null)
-                result = mailChimpManager.CampaignFolders.GetResponseAsync(request);
-
-            return View(result.Result);
-        }
-
         public ActionResult UpdateCampaignFolder(string folderId, string folderName)
         {
             Task<Folder> result = null;
 
             if (folderId != null && folderName != null)
                 result = mailChimpManager.CampaignFolders.UpdateAsync(folderId, folderName);
+
+            return View(result.Result);
+        }
+
+        public ActionResult GetCampaignFolderResponse(QueryableBaseRequest request = null)
+        {
+            Task<CampaignFolderResponse> result = null;
+
+            if (request != null)
+                result = mailChimpManager.CampaignFolders.GetResponseAsync(request);
 
             return View(result.Result);
         }

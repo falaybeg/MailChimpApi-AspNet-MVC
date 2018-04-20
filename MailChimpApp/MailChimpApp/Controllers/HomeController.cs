@@ -11,12 +11,26 @@ using MailChimpApp.Models;
 namespace MailChimpApp.Controllers
 {
     public class HomeController : Controller
-    { 
+    {
+
+        // Register your Api Key and create instance from MailChimpManager
+        IMailChimpManager mailChimp = new MailChimpManager("fe128428f5207b8936c9b6e026c6f5b2-us18");
+
+
+        // Get All registered List
+        public ActionResult GetAllList()
+        {
+            var result = mailChimp.Lists.GetAllAsync();
+
+            return View(result.Result);
+        }
+
 
         public ActionResult Index()
         {
             return View();
         }
+
 
         //public ActionResult AddList(List newList)
         //{

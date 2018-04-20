@@ -13,6 +13,10 @@ namespace MailChimpApp.Controllers
 {
     public class AutomationsController : Controller
     {
+        /// <summary>
+        /// Here we can get all or specific automations, also we can start and pause our automations 
+        /// </summary>
+        
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult GetAllAutomation(QueryableBaseRequest request = null)

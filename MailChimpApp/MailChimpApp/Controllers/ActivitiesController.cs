@@ -13,6 +13,10 @@ namespace MailChimpApp.Controllers
 {
     public class ActivitiesController : Controller
     {
+        /// <summary>
+        /// Here we can get removed subscribers activities
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult GetRemovedSubsribers(string workflowId)

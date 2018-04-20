@@ -13,6 +13,10 @@ namespace MailChimpApp.Controllers
 {
     public class MessagesController : Controller
     {
+        /// <summary>
+        /// Here we can organize our writed messages or add a message 
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddMessages(string conversationId, Message member)

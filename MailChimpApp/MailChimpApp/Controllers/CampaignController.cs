@@ -14,12 +14,14 @@ namespace MailChimpApp.Controllers
 {
     public class CampaignController : Controller
     {
-        IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
+        /// <summary>
+        /// CampaignController is to manage our Campaigns. We can create, delete, get all campaigns.. etc 
+        /// </summary>
 
+        IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddCampaign( )
         {
-            
             return View();
         }
 
@@ -43,6 +45,7 @@ namespace MailChimpApp.Controllers
             return RedirectToAction("GetAllCampaigns");
         }
 
+
         public ActionResult GetAllCampaigns()
         {
             Task<IEnumerable<Campaign>> result = null;
@@ -50,6 +53,7 @@ namespace MailChimpApp.Controllers
 
             return View(result.Result);
         }
+
 
         public ActionResult GetCampaign(string campaignId)
         {
@@ -82,12 +86,21 @@ namespace MailChimpApp.Controllers
             return View(message);
         }
 
+        /// <summary>
+        /// Schedule Campaign (Set campaign sending time)
+        /// </summary>
+        /// <param name="campaignId">campaignId is to choose specific campaign which we want to send</param>
+        /// <param name="content">It is to set our campaign sending time </param>
         public void ScheduleCampaign(string campaignId, CampaignScheduleRequest content = null)
         {
             if (campaignId != null && content != null)
                 mailChimpManager.Campaigns.ScheduleAsync(campaignId, content);
         }
 
+        /// <summary>
+        /// Send a specific Campaign to users by specific campaignId
+        /// </summary>
+        /// <param name="campaignId"></param>
         public void SendCampaign(string campaignId)
         {
             mailChimpManager.Campaigns.SendAsync(campaignId);

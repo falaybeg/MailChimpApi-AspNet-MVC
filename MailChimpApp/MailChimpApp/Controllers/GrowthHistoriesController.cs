@@ -10,6 +10,10 @@ namespace MailChimpApp.Controllers
 {
     public class GrowthHistoriesController : Controller
     {
+        /// <summary>
+        /// GrowthHistoriesController is to get our all or specific Growth history
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult GetAllGrowthHistory(string listId, QueryableBaseRequest request = null)

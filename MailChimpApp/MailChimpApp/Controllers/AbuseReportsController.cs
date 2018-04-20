@@ -13,11 +13,16 @@ namespace MailChimpApp.Controllers
     {
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
-
+        /// <summary>
+        /// We can get abused list reports by listId
+        /// </summary>
+        /// <param name="listId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public ActionResult GetAllActivities(string listId, BaseRequest request = null)
         {
             Task<IEnumerable<Activity>> result = null;
-
+            listId = "c97e72b500";
             if (listId != null)
                 result = mailChimpManager.Activities.GetAllAsync(listId, request);
 

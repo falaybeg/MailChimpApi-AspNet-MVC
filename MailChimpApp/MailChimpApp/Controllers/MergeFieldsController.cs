@@ -25,7 +25,7 @@ namespace MailChimpApp.Controllers
             return View(result.Result);
         }
 
-        public ActionResult DeleteList(string listId, int mergeId)
+        public ActionResult DeleteMergeFields(string listId, int mergeId)
         {
             if (listId != null && mergeId != 0)
                 mailChimpManager.MergeFields.DeleteAsync(listId, mergeId);
@@ -53,7 +53,7 @@ namespace MailChimpApp.Controllers
             return View(result.Result);
         }
 
-        public ActionResult GetResponse(string listId, MergeFieldRequest request = null)
+        public ActionResult GetMergeFieldsResponse(string listId, MergeFieldRequest request = null)
         {
             Task<MergeFieldResponse> result = null;
 

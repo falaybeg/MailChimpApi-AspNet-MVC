@@ -13,8 +13,11 @@ namespace MailChimpApp.Controllers
 {
     public class FileManagerFolderController : Controller
     {
-        IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
+        /// <summary>
+        /// Here we can create, delete... folder to organize our files.
+        /// </summary>
 
+        IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddFileManagerFolder(string folderName)
         {

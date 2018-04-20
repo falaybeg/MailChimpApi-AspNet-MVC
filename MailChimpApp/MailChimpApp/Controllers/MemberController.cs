@@ -14,6 +14,12 @@ namespace MailChimpApp.Controllers
 {
     public class MemberController : Controller
     {
+        /// <summary>
+        /// MemberController is to organize our members. 
+        /// We can subscribe, unsubscribe, get all member... etc.  
+        /// Also we can check out and search members.
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddSubscribe(string listId, Member member)
@@ -29,6 +35,14 @@ namespace MailChimpApp.Controllers
             return View("AddSubscribe");
         }
 
+        public ActionResult DeleteMember(string listId, string emailAddress)
+        {
+            if (listId != null && emailAddress != null)
+                mailChimpManager.Members.DeleteAsync(listId, emailAddress);
+
+            return RedirectToAction("GetAllMember", new { listId = listId });
+        }
+
         public ActionResult GetAllMember(string listId)
         {
             Task<IEnumerable<Member>> result = null;
@@ -37,14 +51,6 @@ namespace MailChimpApp.Controllers
             ViewBag.listId = listId;
 
             return View(result.Result);
-        }
-
-        public ActionResult DeleteMember(string listId, string emailAddress)
-        {
-            if (listId != null && emailAddress != null)
-                mailChimpManager.Members.DeleteAsync(listId, emailAddress);
-
-            return RedirectToAction("GetAllMember", new { listId = listId});
         }
 
         public async Task<ActionResult> ExistsMember(string listId, string emailAddress)
@@ -84,7 +90,7 @@ namespace MailChimpApp.Controllers
             return View(totalItem);
         }
 
-        public async Task<ActionResult> SearchMember(string query, string listId)
+        public ActionResult SearchMember(string query, string listId)
         {
             Task<MemberSearchResult> result = null;
 

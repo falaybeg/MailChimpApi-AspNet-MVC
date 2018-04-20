@@ -11,6 +11,10 @@ namespace MailChimpApp.Controllers
 {
     public class FileManagerFilesController : Controller
     {
+        /// <summary>
+        /// Here can Upload files to our account. It could be photo, txt files... etc
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult AddFile(string name, string folderId, string base64String)

@@ -13,6 +13,11 @@ namespace MailChimpApp.Controllers
 {
     public class TemplateController : Controller
     {
+
+        /// <summary>
+        /// TemplateController is to create, update, delete, get all templates.
+        /// </summary>
+
         IMailChimpManager mailChimpManager = MailChimApiManager.MailChimpService();
 
         public ActionResult CreateTemplate()
