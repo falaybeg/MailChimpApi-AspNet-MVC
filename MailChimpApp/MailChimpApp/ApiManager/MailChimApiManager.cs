@@ -9,7 +9,7 @@ namespace MailChimpApp.ApiManager
     public class MailChimApiManager
     {
 
-        static string apiKey = "6410537375ac746f79ab4903e5ec316d-us18";
+        static string apiKey = "Your-Api-Key";
         private static MailChimpManager mailChimpManager = null;
 
         public static MailChimpManager MailChimpService()
